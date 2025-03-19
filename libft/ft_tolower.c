@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 12:31:33 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/19 14:54:59 by yukoc            ###   ########.fr       */
+/*   Created: 2024/10/09 14:59:21 by yukoc             #+#    #+#             */
+/*   Updated: 2024/10/09 14:59:44 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-typedef struct s_push_swap
+int	ft_tolower(int c)
 {
-	char	**split;
-	char	**argv;
-	int		argc;
-	int		*stack_a;
-	int		*stack_b;
-	int		size;
-}				t_push_swap;
-
-#endif
+	if (c >= 'A' && c <= 'Z')
+		return (c - 'A' + 'a');
+	return (c);
+}

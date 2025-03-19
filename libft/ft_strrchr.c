@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 12:31:33 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/19 14:54:59 by yukoc            ###   ########.fr       */
+/*   Created: 2024/10/12 13:34:03 by yukoc             #+#    #+#             */
+/*   Updated: 2024/10/22 12:37:22 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_push_swap
+char	*ft_strrchr(const char *s, int c)
 {
-	char	**split;
-	char	**argv;
-	int		argc;
-	int		*stack_a;
-	int		*stack_b;
-	int		size;
-}				t_push_swap;
+	int	i;
 
-#endif
+	i = ft_strlen(s);
+	while (i >= 0)
+	{
+		if (s[i] == (unsigned char)c)
+			return ((char *)s + i);
+		i--;
+	}
+	return (NULL);
+}

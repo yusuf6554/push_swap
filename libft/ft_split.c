@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split_string.c                                     :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 12:37:53 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/17 12:45:01 by yukoc            ###   ########.fr       */
+/*   Created: 2024/10/17 12:36:02 by yukoc             #+#    #+#             */
+/*   Updated: 2024/10/22 12:13:22 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static char	**ft_free_all(char **result)
 	return (NULL);
 }
 
-char	**split_string(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char			**words;
 	unsigned int	i;

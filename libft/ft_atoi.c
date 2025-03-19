@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 12:31:33 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/19 14:54:59 by yukoc            ###   ########.fr       */
+/*   Created: 2024/10/07 13:44:28 by yukoc             #+#    #+#             */
+/*   Updated: 2024/10/10 12:49:08 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-typedef struct s_push_swap
+int	ft_atoi(const char *str)
 {
-	char	**split;
-	char	**argv;
-	int		argc;
-	int		*stack_a;
-	int		*stack_b;
-	int		size;
-}				t_push_swap;
+	int	sign;
+	int	num;
 
-#endif
+	sign = 1;
+	num = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\n'
+		|| *str == '\v' || *str == '\f' || *str == '\r')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		num = (num * 10) + (*str - '0');
+		str++;
+	}
+	return (num * sign);
+}

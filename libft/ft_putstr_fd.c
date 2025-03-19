@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 12:31:33 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/19 14:54:59 by yukoc            ###   ########.fr       */
+/*   Created: 2024/10/17 14:58:50 by yukoc             #+#    #+#             */
+/*   Updated: 2024/10/17 15:03:45 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-typedef struct s_push_swap
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	**split;
-	char	**argv;
-	int		argc;
-	int		*stack_a;
-	int		*stack_b;
-	int		size;
-}				t_push_swap;
+	int	i;
 
-#endif
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+	return ;
+}

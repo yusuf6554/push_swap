@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 12:31:33 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/19 14:54:59 by yukoc            ###   ########.fr       */
+/*   Created: 2024/10/09 15:05:27 by yukoc             #+#    #+#             */
+/*   Updated: 2024/10/09 15:07:04 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stddef.h>
 
-typedef struct s_push_swap
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	**split;
-	char	**argv;
-	int		argc;
-	int		*stack_a;
-	int		*stack_b;
-	int		size;
-}				t_push_swap;
+	size_t			i;
+	unsigned char	*tmp_s;
+	unsigned char	tmp_c;
 
-#endif
+	tmp_s = (unsigned char *)s;
+	tmp_c = (unsigned char)c;
+	i = -1;
+	while (++i < n)
+	{
+		if (tmp_s[i] == tmp_c)
+			return (tmp_s + i);
+	}
+	return (NULL);
+}

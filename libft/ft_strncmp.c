@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 12:31:33 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/19 14:54:59 by yukoc            ###   ########.fr       */
+/*   Created: 2024/10/12 13:44:31 by yukoc             #+#    #+#             */
+/*   Updated: 2024/10/19 00:41:02 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stddef.h>
 
-typedef struct s_push_swap
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	**split;
-	char	**argv;
-	int		argc;
-	int		*stack_a;
-	int		*stack_b;
-	int		size;
-}				t_push_swap;
+	size_t	i;
 
-#endif
+	if (n < 1)
+		return (0);
+	i = 0;
+	while (i < n - 1 && s1[i] == s2[i] && s1[i])
+	{
+		i++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

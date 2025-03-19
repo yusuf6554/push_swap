@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 12:31:33 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/19 14:54:59 by yukoc            ###   ########.fr       */
+/*   Created: 2024/10/09 15:07:21 by yukoc             #+#    #+#             */
+/*   Updated: 2024/10/20 12:25:47 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stddef.h>
 
-typedef struct s_push_swap
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	**split;
-	char	**argv;
-	int		argc;
-	int		*stack_a;
-	int		*stack_b;
-	int		size;
-}				t_push_swap;
+	size_t				i;
+	const unsigned char	*tmp_s1;
+	const unsigned char	*tmp_s2;
 
-#endif
+	tmp_s1 = (const unsigned char *)s1;
+	tmp_s2 = (const unsigned char *)s2;
+	i = 0;
+	while (i < n)
+	{
+		if (tmp_s1[i] != tmp_s2[i])
+			return (tmp_s1[i] - tmp_s2[i]);
+		i++;
+	}
+	return (0);
+}
