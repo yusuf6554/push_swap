@@ -6,75 +6,94 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:18:38 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/19 14:54:03 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/03/21 12:51:26 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "ft_printf.h"
 #include "libft.h"
-#include <stdlib.h>
 
-static void	free_split(char **split)
+static int	get_pivot(t_node *node)
 {
-	int	i;
+	int	min;
+	int	max;
 
-	if (!split)
-		return ;
-	i = -1;
-	while (split[++i])
-		free(split[i]);
-	free(split);
-}
-
-static int	get_stack_size(char **argv)
-{
-	int		i;
-
-	i = 0;
-	while (argv[i])
-		i++;
-	i--;
-	return (i);
-}
-
-static void fill_stack(t_push_swap *push_swap)
-{
-	int	i;
-
-	i = -1;
-	while (++i < push_swap->size)
+	min = node->index;
+	max = node->index;
+	while (node)
 	{
-		if (push_swap->argc == 2)
-			push_swap->stack_a[i] = ft_atoi(push_swap->split[i]);
-		else
-			push_swap->stack_a[i] = ft_atoi(push_swap->argv[i + 1]);
+		if (node->index < min)
+			min = node->index;
+		if (node->index > max)
+			max = node->index;
+		node = node->next;
 	}
+	return (((min + max) / 2) + (min + max) % 2);
+}
+
+static void	sort_main(t_push_swap *ps, int max, int min)
+{
+	int	pivot_a;
+	int	i;
+	int	len;
+
+	pivot_a = ((max + min) / 2) + (max + min) % 2;
+	len = max - min + 1;
+	i = len;
+	while (len / 2 + len % 2 != i)
+	{
+		if (ps->a->nodes->index < pivot_a && i--)
+			pb(ps);
+		else if (ps->b->size > 2
+			&& ps->b->nodes->index <= get_pivot(ps->b->nodes))
+			r_all(ps, 1);
+		else
+			ra(ps->a, 1);
+	}
+	sa_pb(ps, max, pivot_a);
+	sb_pa(ps, min, pivot_a - 1);
+}
+
+static t_stack	*stack_init(void)
+{
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->size = 0;
+	stack->nodes = NULL;
+	return (stack);
+}
+
+static int	push_swap_main(int argc, char **argv)
+{
+	t_push_swap	ps;
+	int			i;
+
+	i = check_args(argc, argv);
+	if (i == 0)
+		return (0);
+	else if (i == 2)
+		return (1);
+	ps.a = stack_init();
+	ps.b = stack_init();
+	if (!ps.a || !ps.b)
+		return (free_stacks(&ps), 1);
+	if (stack_operations(argc, argv, &ps.a) == 0)
+		return (free_stacks(&ps), 1);
+	node_index(&ps.a);
+	if (ps.a->size == 3)
+		sort_three(&ps);
+	else if (ps.a->size == 2)
+		sa(&ps.a);
+	else
+		sort_main(&ps, ps.a->size, 1);
+	return (free_stacks(&ps), 0);
 }
 
 int	main(int argc, char **argv)
 {
-	t_push_swap	push_swap;
-
-	if (argc < 2)
-		return (0);
-	push_swap.size = get_stack_size(argv);
-	push_swap.split = NULL;
-	push_swap.argv = argv;
-	push_swap.argc = argc;
-	if (argc == 2)
-	{
-		push_swap.split = ft_split(push_swap.argv[1], ' ');
-		push_swap.size = get_stack_size(push_swap.split) + 1;
-	}
-	push_swap.stack_a = malloc(sizeof(int) * (push_swap.size + 1));
-	push_swap.stack_b = malloc(sizeof(int) * (push_swap.size + 1));
-	if (!push_swap.stack_a || !push_swap.stack_b)
-		return (1);
-	fill_stack(&push_swap);
-	free_split(push_swap.split);
-	ft_printf("%i\n%i\n", push_swap.stack_a[0], push_swap.size);
-	free(push_swap.stack_a);
-	free(push_swap.stack_b);
-	return (0);
+	return (push_swap_main(argc, argv));
 }
