@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:18:38 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/22 18:27:00 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/03/22 18:28:11 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ static int	push_swap_main(int argc, char **argv)
 	else
 		sort_main(&ps, ps.a->size, 1);
 	return (free_stacks(&ps), 0);
-	return (i);
 }
 
 int	main(int argc, char **argv)
