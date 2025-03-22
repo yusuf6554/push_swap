@@ -1,4 +1,4 @@
-SRC				= main.c
+SRC				= main.c checks.c
 SRC_DIR			= src
 
 SRCS			= $(addprefix $(SRC_DIR)/, $(SRC))

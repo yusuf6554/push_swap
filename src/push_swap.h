@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:31:33 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/21 12:32:50 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/03/22 18:21:45 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ typedef struct s_three_values
 	int	second;
 	int	third;
 }				t_three_values;
+
+int	check_args(int argc, char **argv);
 
 #endif
