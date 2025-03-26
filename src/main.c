@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:18:38 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/22 18:28:11 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/03/27 02:21:08 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	sort_main(t_push_swap *ps, int max, int min)
 			&& ps->b->nodes->index <= get_pivot(ps->b->nodes))
 			r_all(ps, 1);
 		else
-			ra(ps->a, 1);
+			ra(ps->a);
 	}
 	sa_pb(ps, max, pivot_a);
 	sb_pa(ps, min, pivot_a - 1);
