@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:18:38 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/27 02:21:08 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/09 14:20:55 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	get_pivot(t_node *node)
 	return (((min + max) / 2) + (min + max) % 2);
 }
 
-static void	sort_main(t_push_swap *ps, int max, int min)
+static void	sort_main(t_push_swap *ps, int min, int max)
 {
 	int	pivot_a;
 	int	i;
@@ -52,8 +52,8 @@ static void	sort_main(t_push_swap *ps, int max, int min)
 		else
 			ra(ps->a);
 	}
-	sa_pb(ps, max, pivot_a);
-	sb_pa(ps, min, pivot_a - 1);
+	sa_push_b(ps, pivot_a, max);
+	sb_push_a(ps, min, pivot_a - 1);
 }
 
 static t_stack	*stack_init(void)
@@ -90,7 +90,7 @@ static int	push_swap_main(int argc, char **argv)
 	else if (ps.a->size == 2)
 		sa(&ps.a);
 	else
-		sort_main(&ps, ps.a->size, 1);
+		sort_main(&ps, 1, ps.a->size);
 	return (free_stacks(&ps), 0);
 }
 

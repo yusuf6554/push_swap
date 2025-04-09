@@ -1,4 +1,13 @@
-SRC				= main.c checks.c
+SRC				= checks.c \
+				main.c \
+				node_index.c \
+				push_ops.c \
+				rules_a.c \
+				rules_all.c \
+				rules_b.c \
+				rules.c \
+				stack_ops.c \
+				utils.c
 SRC_DIR			= src
 
 SRCS			= $(addprefix $(SRC_DIR)/, $(SRC))
