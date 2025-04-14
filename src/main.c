@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:18:38 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/09 14:20:55 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/14 14:38:06 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	sort_main(t_push_swap *ps, int min, int max)
 	pivot_a = ((max + min) / 2) + (max + min) % 2;
 	len = max - min + 1;
 	i = len;
-	while (len / 2 + len % 2 != i)
+	while ((len / 2) + (len % 2) != i)
 	{
 		if (ps->a->nodes->index < pivot_a && i--)
 			pb(ps);
@@ -50,7 +50,7 @@ static void	sort_main(t_push_swap *ps, int min, int max)
 			&& ps->b->nodes->index <= get_pivot(ps->b->nodes))
 			r_all(ps, 1);
 		else
-			ra(ps->a);
+			ra(&ps->a);
 	}
 	sa_push_b(ps, pivot_a, max);
 	sb_push_a(ps, min, pivot_a - 1);
@@ -82,11 +82,11 @@ static int	push_swap_main(int argc, char **argv)
 	ps.b = stack_init();
 	if (!ps.a || !ps.b)
 		return (free_stacks(&ps), 1);
-	if (stack_operations(argc, argv, &ps.a) == 0)
+	if (stack_ops(argc, argv, &ps.a) == 0)
 		return (free_stacks(&ps), 1);
 	node_index(&ps.a);
 	if (ps.a->size == 3)
-		sort_three(&ps);
+		sa_sort_three(&ps);
 	else if (ps.a->size == 2)
 		sa(&ps.a);
 	else

@@ -6,6 +6,8 @@ SRC				= checks.c \
 				rules_all.c \
 				rules_b.c \
 				rules.c \
+				sa_sorting.c \
+				sb_sorting.c \
 				stack_ops.c \
 				utils.c
 SRC_DIR			= src
@@ -13,8 +15,8 @@ SRC_DIR			= src
 SRCS			= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS			= $(SRCS:.c=.o)
 
-CC				= cc
-CFLAGS			= -Wall -Wextra -Werror -I$(FT_PRINTF_DIR) -I$(LIBFT_DIR)
+CC				= gcc
+CFLAGS			= -Wall -Wextra -Werror -ggdb -I$(FT_PRINTF_DIR) -I$(LIBFT_DIR)
 
 NAME			= push_swap
 

@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:58:55 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/09 14:19:40 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/14 14:58:45 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ static void	sb_push(t_push_swap *ps, int min, int max)
 	if (ps->b->size > 2)
 		b.third = ps->b->nodes->next->next->index;
 	i = max - min + 1;
-	if (is_node_sorted_reverse(ps->b, min, max) == 1)
+	if (is_node_reverse_sorted(ps->b, min, max) == 1)
 		while (i--)
 			pa(ps);
 	else if (i == 2)
 	{
-		sb(ps->b);
+		sb(&ps->b);
 		pa(ps);
 		pa(ps);
 	}
 	else if (i == 3 && ps->b->size == 3)
-		sb_reverse_sort_three(ps, b);
+		sb_rev_sort_three(ps, b);
 	else if (i == 3)
-		sb_push_sort_three_a(ps, b);
+		sba_push_sort_three(ps, b);
 }
 
 static void	sa_push(t_push_swap *ps, int min, int max)
@@ -53,9 +53,9 @@ static void	sa_push(t_push_swap *ps, int min, int max)
 		&& ps->a->nodes->index > ps->a->nodes->next->index)
 		ss_push_a(ps);
 	else if (i == 3 && ps->a->size == 3)
-		sa_sort_three(ps, a);
+		sa_sort_three(ps);
 	else if (i == 3)
-		sa_three_sort_gthree(ps, a);
+		sa_more_than_three_sort(ps, a);
 }
 
 void	sb_push_a(t_push_swap *ps, int min, int max)
@@ -75,10 +75,10 @@ void	sb_push_a(t_push_swap *ps, int min, int max)
 			if (ps->b->nodes->index >= pivot && i--)
 				pa(ps);
 		else if (++r_count)
-			rb(ps->b);
+			rb(&ps->b);
 		while (r_count--
 			&& (len / 2) + (len % 2) != ps->b->size)
-			rrb(ps->b);
+			rrb(&ps->b);
 		sa_push_b(ps, pivot, max);
 		sb_push_a(ps, min, pivot - 1);
 	}
@@ -99,14 +99,14 @@ void	sa_push_b(t_push_swap *ps, int min, int max)
 	if (len > 3)
 	{
 		i = len;
-		while ((len / 2) < i)
+		while ((len / 2) + (len % 2) != i)
 			if (ps->a->nodes->index >= pivot && i--)
 				pb(ps);
-		else if (++r_count)
-			ra(ps->a);
+		else if (++r_count != -1)
+			ra(&ps->a);
 		while (r_count--
 			&& (len / 2) + (len % 2) != ps->a->size)
-			rra(ps->a);
+			rra(&ps->a);
 		sa_push_b(ps, pivot, max);
 		sb_push_a(ps, min, pivot - 1);
 	}

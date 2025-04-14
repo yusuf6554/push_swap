@@ -1,0 +1,32 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "(gdb) Launch",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/push_swap",
+			"args": ["90 -41 -71 11 -73 -13 -57 9 -11 -1 -32 41 55 -79 13 -94 -100 26 73 -88 -51 -18 89 17 21 35 -87 -72 86 -83 28 -20 -7 -95 8 -36 -8 25 39 99 -45 34 -80 -98 91 22 56 -54 -34 -14 -33 -5 -63 -15 72 16 -69 36 -23 100 75 12 88 54 -52 51"],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				}
+			]
+		}
+	]
+}

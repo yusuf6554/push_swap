@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 12:16:16 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/26 12:21:01 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/14 14:14:47 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,19 @@ void	free_stacks(t_push_swap *ps)
 		ps->a->nodes = ps->a->nodes->next;
 		free(tmp);
 	}
-	if (ps->a)
-		free(ps->a);
 	while (ps->b && ps->b->nodes)
 	{
 		tmp = ps->b->nodes;
 		ps->b->nodes = ps->b->nodes->next;
 		free(tmp);
 	}
+	if (ps->a)
+		free(ps->a);
 	if (ps->b)
 		free(ps->b);
-	if (ps)
-		free(ps);
 }
 
-static t_node	*ft_lst_last(t_node *lst)
+t_node	*ft_lst_last(t_node *lst)
 {
 	if (!lst)
 		return (0);

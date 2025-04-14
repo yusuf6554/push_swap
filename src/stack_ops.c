@@ -6,12 +6,13 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:34:43 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/07 13:43:20 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/14 14:11:52 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft.h"
+#include <stdlib.h>
 
 static t_node	*set_value(int val)
 {
@@ -80,11 +81,15 @@ static int	fill_node(t_stack **stack_a, int argc, char **argv)
 int	stack_ops(int argc, char **argv, t_stack **stack)
 {
 	if (argc == 2)
+	{
 		if (!fill_node_with_two_args(stack, argv))
 			return (0);
+	}
 	else
+	{
 		if (!fill_node(stack, argc, argv))
 			return (0);
+	}
 	(*stack)->size = ft_lst_size((*stack)->nodes);
 	return (1);
 }
