@@ -16,7 +16,7 @@ SRCS			= $(addprefix $(SRC_DIR)/, $(SRC))
 OBJS			= $(SRCS:.c=.o)
 
 CC				= cc
-CFLAGS			= -Wall -Wextra -Werror -ggdb -I$(FT_PRINTF_DIR) -I$(LIBFT_DIR)
+CFLAGS			= -Wall -Wextra -Werror -I$(FT_PRINTF_DIR) -I$(LIBFT_DIR)
 
 NAME			= push_swap
 

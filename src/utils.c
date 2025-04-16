@@ -6,71 +6,87 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 12:16:16 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/14 14:14:47 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/16 13:33:15 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "ft_printf.h"
 #include <stdlib.h>
 
-void	free_stacks(t_push_swap *ps)
+t_stack	*ft_node_last(t_stack **stack)
 {
-	t_node	*tmp;
+	t_stack	*cur;
 
-	while (ps->a && ps->a->nodes)
-	{
-		tmp = ps->a->nodes;
-		ps->a->nodes = ps->a->nodes->next;
-		free(tmp);
-	}
-	while (ps->b && ps->b->nodes)
-	{
-		tmp = ps->b->nodes;
-		ps->b->nodes = ps->b->nodes->next;
-		free(tmp);
-	}
-	if (ps->a)
-		free(ps->a);
-	if (ps->b)
-		free(ps->b);
+	if (!(*stack))
+		return (NULL);
+	cur = *stack;
+	while (cur->next)
+		cur = cur->next;
+	return (cur);
 }
 
-t_node	*ft_lst_last(t_node *lst)
+int	is_sorted(t_stack *stack)
 {
-	if (!lst)
-		return (0);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
+	t_stack	*cur;
 
-int	ft_lst_node_add_back(t_node **lst, t_node *new)
-{
-	t_node	*last;
-
-	if (!new || !lst)
-		return (0);
-	if (!*lst)
-		*lst = new;
-	else
+	if (!stack || !stack->next)
+		return (1);
+	cur = stack;
+	while (cur->next)
 	{
-		last = ft_lst_last(*lst);
-		if (!last)
+		if (cur->value > cur->next->value)
 			return (0);
-		last->next = new;
+		cur = cur->next;
 	}
 	return (1);
 }
 
-int	ft_lst_size(t_node *lst)
+int	get_len(t_stack *stack)
 {
-	int	i;
+	int		len;
 
-	i = 0;
-	while (lst)
+	len = 0;
+	while (stack)
 	{
-		lst = lst->next;
-		i++;
+		len++;
+		stack = stack->next;
 	}
-	return (i);
+	return (len);
+}
+
+void	handle_error(t_stack **stack, char *err)
+{
+	t_stack	*cur;
+
+	if (!stack)
+		return ;
+	cur = *stack;
+	while (*stack)
+	{
+		*stack = (*stack)->next;
+		free(cur);
+		cur = *stack;
+	}
+	if (err)
+		ft_printf("%s", err);
+	else
+		ft_printf("Error!\n");
+	exit(1);
+}
+
+int	is_reverse_sorted(t_stack *stack)
+{
+	t_stack	*cur;
+
+	if (!stack || !stack->next)
+		return (1);
+	cur = stack;
+	while (cur->next)
+	{
+		if (cur->value < cur->next->value)
+			return (0);
+		cur = cur->next;
+	}
+	return (1);
 }
