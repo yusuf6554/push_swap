@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:36:02 by yukoc             #+#    #+#             */
-/*   Updated: 2025/03/21 13:01:50 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 14:38:42 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static unsigned int	ft_charlen(const char *s, char c)
 	return (i);
 }
 
-char	**ft_free_all(char **result)
+static char	**ft_free_all(char **result)
 {
 	int	i;
 
