@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 12:16:16 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 14:45:57 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 14:50:30 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,14 @@ void	handle_error(t_stack **stack, char *err)
 {
 	t_stack	*cur;
 
-	if (stack)
+	if (!stack)
+		return ;
+	cur = *stack;
+	while (*stack)
 	{
+		*stack = (*stack)->next;
+		free(cur);
 		cur = *stack;
-		while (*stack)
-		{
-			*stack = (*stack)->next;
-			free(cur);
-			cur = *stack;
-		}
 	}
 	if (err)
 		ft_printf("%s", err);
