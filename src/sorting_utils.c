@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 16:03:12 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 13:26:51 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 15:11:18 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	find_pivot(t_stack **stack, int len)
 	i = 0;
 	pivot_array = (int *)malloc(sizeof(int) * len);
 	if (!pivot_array)
-		handle_error(stack, "Memory allocation error (pivot_array)\n");
+		handle_error(stack);
 	tmp = *stack;
 	while (tmp)
 	{

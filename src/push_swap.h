@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 12:31:33 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 13:27:51 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 15:11:16 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		stack_init(int argc, char **argv, t_stack **stack);
 t_stack	*ft_node_last(t_stack **stack);
 int		is_sorted(t_stack *stack);
 int		get_len(t_stack *stack);
-void	handle_error(t_stack **stack, char *err);
+void	handle_error(t_stack **stack);
 int		is_reverse_sorted(t_stack *stack);
 void	sort_index(t_stack **stack);
 int		find_pivot(t_stack **stack, int len);

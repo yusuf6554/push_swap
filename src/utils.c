@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 12:16:16 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 14:50:30 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 15:11:16 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	get_len(t_stack *stack)
 	return (len);
 }
 
-void	handle_error(t_stack **stack, char *err)
+void	handle_error(t_stack **stack)
 {
 	t_stack	*cur;
 
@@ -68,10 +68,7 @@ void	handle_error(t_stack **stack, char *err)
 		free(cur);
 		cur = *stack;
 	}
-	if (err)
-		ft_printf("%s", err);
-	else
-		ft_printf("Error!\n");
+		ft_printf("Error\n");
 	exit(1);
 }
 

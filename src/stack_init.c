@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:34:43 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 14:48:45 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 15:11:17 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	create_node(t_stack **stack, int value)
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 	{
-		handle_error(stack, "Memory allocation error (node)");
+		handle_error(stack);
 		return (0);
 	}
 	new->value = value;
@@ -84,7 +84,7 @@ static int	ft_proc_split(char **split, t_stack **stack)
 		if (!ft_is_valid_integer(split[i]))
 		{
 			ft_free_split(split);
-			handle_error(stack, "Error: Invalid argument\n");
+			handle_error(stack);
 			return (1);
 		}
 		create_node(stack, ft_atoi(split[i]));
@@ -103,15 +103,15 @@ int	stack_init(int argc, char **argv, t_stack **stack)
 	while (i < argc)
 	{
 		if (check_arg(argv[i]))
-			handle_error(stack, "Error: Empty argument\n");
+			handle_error(stack);
 		split = ft_split(argv[i], ' ');
 		if (!split)
-			return (handle_error(stack, "Memory allocation error (split)"), 1);
+			return (handle_error(stack), 1);
 		if (ft_proc_split(split, stack))
 			return (1);
 		i++;
 	}
 	if (check_for_duplicates(*stack))
-		return (handle_error(stack, "Error: Duplicate numbers detected"), 1);
+		return (handle_error(stack), 1);
 	return (0);
 }
