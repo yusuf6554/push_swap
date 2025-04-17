@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:49 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/16 13:54:55 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 13:33:23 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,5 @@ void	sort_little(t_stack **a, t_stack **b)
 	sort_three_a(a);
 	sort_three_b(b);
 	while (*b)
-		pa(b, a);
+		pa(a, b);
 }

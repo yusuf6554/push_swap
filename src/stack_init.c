@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:34:43 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/16 13:35:22 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 13:20:06 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	create_node(t_stack **stack, int value)
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 	{
-		handle_error(stack);
+		handle_error(stack, "Memory allocation error (node)");
 		return (0);
 	}
 	new->value = value;
@@ -84,7 +84,7 @@ static int	ft_proc_split(char **split, t_stack **stack)
 		if (!ft_is_digit(split[i]))
 		{
 			ft_free_split(split);
-			handle_error(stack);
+			handle_error(stack, "Error: Invalid argument\n");
 			return (1);
 		}
 		create_node(stack, ft_atoi(split[i]));

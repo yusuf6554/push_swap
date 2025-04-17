@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rules_r.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/17 12:18:38 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 13:28:49 by yukoc            ###   ########.fr       */
+/*   Created: 2025/04/17 13:08:59 by yukoc             #+#    #+#             */
+/*   Updated: 2025/04/17 13:10:26 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
+#include "ft_printf.h"
 
-static int	push_swap_main(int argc, char **argv)
+void	ra(t_stack **a)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*temp;
+	t_stack	*last;
 
-	a = NULL;
-	b = NULL;
-	if (argc < 2)
-		return (0);
-	if (stack_init(argc, argv, &a))
-		return (1);
-	if (!is_sorted(a))
-	{
-		sort_index(&a);
-		sort(&a, &b, get_len(a));
-	}
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+	if (!(*a) || !(*a)->next)
+		return ;
+	temp = *a;
+	*a = (*a)->next;
+	last = ft_node_last(a);
+	temp->next = NULL;
+	last->next = temp;
+	ft_printf("ra\n");
 }
 
-int	main(int argc, char **argv)
+void	rb(t_stack **b)
 {
-	return (push_swap_main(argc, argv));
+	t_stack	*temp;
+	t_stack	*last;
+
+	if (!(*b) || !(*b)->next)
+		return ;
+	temp = *b;
+	*b = (*b)->next;
+	last = ft_node_last(b);
+	temp->next = NULL;
+	last->next = temp;
+	ft_printf("rb\n");
 }

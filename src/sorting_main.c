@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 16:03:16 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/16 13:41:13 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 13:32:18 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void	sort_radix(t_stack **a, t_stack **b, int size)
 	int		max_bits;
 
 	max_bits = 0;
-	i = -1;
+	i = 0;
 	while ((size - 1) >> max_bits)
 		max_bits++;
-	while (++i < max_bits)
+	while (i < max_bits)
 	{
 		j = -1;
 		while (++j < size)
@@ -35,27 +35,22 @@ static void	sort_radix(t_stack **a, t_stack **b, int size)
 				pb(a, b);
 		}
 		while (*b)
-			pa(b, a);
+			pa(a, b);
+		i++;
 	}	
 }
 
-void	sort(t_stack **a, t_stack **b, int size)
+int	sort(t_stack **a, t_stack **b, int size)
 {
 	if (size == 2)
 	{
 		if ((*a)->value > (*a)->next->value)
 			sa(a);
-		return ;
+		return (0);
 	}
 	else if (size == 3)
-	{
-		sort_three_a(a, b);
-		return ;
-	}
+		return (sort_three_a(a), 0);
 	if (size <= 6)
-	{
-		sort_little(a, b);
-		return ;
-	}
-	radix(a, b, size);
+		return (sort_little(a, b), 0);
+	return (sort_radix(a, b, size), 0);
 }

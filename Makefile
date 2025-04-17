@@ -1,14 +1,13 @@
 SRC				= checks.c \
 				main.c \
-				node_index.c \
-				push_ops.c \
-				rules_a.c \
-				rules_all.c \
-				rules_b.c \
-				rules.c \
-				sa_sorting.c \
-				sb_sorting.c \
-				stack_ops.c \
+				rules_p.c \
+				rules_r.c \
+				rules_rr.c \
+				rules_s.c \
+				sorting_little.c \
+				sorting_main.c \
+				sorting_utils.c \
+				stack_init.c \
 				utils.c
 SRC_DIR			= src
 

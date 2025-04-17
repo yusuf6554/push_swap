@@ -6,11 +6,12 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 16:03:12 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/16 13:36:21 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 13:26:51 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
 void	sort_index(t_stack **stack)
 {

@@ -6,12 +6,12 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 12:52:08 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/16 13:27:38 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 13:35:59 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
+#include <stddef.h>
 
 int	ft_is_digit(char *str)
 {

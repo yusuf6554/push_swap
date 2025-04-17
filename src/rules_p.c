@@ -1,18 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   rules_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 14:59:21 by yukoc             #+#    #+#             */
-/*   Updated: 2024/10/09 14:59:44 by yukoc            ###   ########.fr       */
+/*   Created: 2025/04/17 13:12:58 by yukoc             #+#    #+#             */
+/*   Updated: 2025/04/17 13:13:41 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "push_swap.h"
+#include "ft_printf.h"
+
+void	pa(t_stack **a, t_stack **b)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c - 'A' + 'a');
-	return (c);
+	t_stack	*temp;
+
+	if (!(*b))
+		return ;
+	temp = *b;
+	*b = (*b)->next;
+	temp->next = *a;
+	*a = temp;
+	ft_printf("pa\n");
+}
+
+void	pb(t_stack **a, t_stack **b)
+{
+	t_stack	*temp;
+
+	if (!(*a))
+		return ;
+	temp = *a;
+	*a = (*a)->next;
+	temp->next = *b;
+	*b = temp;
+	ft_printf("pb\n");
 }
