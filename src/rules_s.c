@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 13:14:05 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 13:15:54 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 15:31:42 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	sa(t_stack **a)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (!(*a) || !(*a)->next)
 		return ;
@@ -30,8 +30,8 @@ void	sa(t_stack **a)
 
 void	sb(t_stack **b)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (!(*b) || !(*b)->next)
 		return ;

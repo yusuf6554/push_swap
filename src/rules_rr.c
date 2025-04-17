@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 13:10:35 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 13:12:39 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 15:31:20 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static void	remove_last_node(t_stack **stack)
 {
-	t_stack *last;
-	t_stack *prev;
+	t_stack	*last;
+	t_stack	*prev;
 
 	if (!(*stack) || !(*stack)->next)
 		return ;
@@ -35,7 +35,7 @@ static void	remove_last_node(t_stack **stack)
 
 void	rra(t_stack **a)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	if (!(*a) || !(*a)->next)
 		return ;
@@ -48,7 +48,7 @@ void	rra(t_stack **a)
 
 void	rrb(t_stack **b)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	if (!(*b) || !(*b)->next)
 		return ;

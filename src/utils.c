@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 12:16:16 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 15:11:16 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 15:31:33 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	handle_error(t_stack **stack)
 		free(cur);
 		cur = *stack;
 	}
-		ft_printf("Error\n");
+	ft_printf("Error\n");
 	exit(1);
 }
 
