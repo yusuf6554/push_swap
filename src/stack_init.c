@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 13:34:43 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 13:20:06 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/17 14:48:45 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ static int	ft_proc_split(char **split, t_stack **stack)
 	i = 0;
 	while (split[i])
 	{
-		if (!ft_is_digit(split[i]))
+		if (!ft_is_valid_integer(split[i]))
 		{
 			ft_free_split(split);
 			handle_error(stack, "Error: Invalid argument\n");
