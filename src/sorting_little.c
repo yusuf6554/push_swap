@@ -6,7 +6,7 @@
 /*   By: yukoc <yukoc@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:41:49 by yukoc             #+#    #+#             */
-/*   Updated: 2025/04/17 13:33:23 by yukoc            ###   ########.fr       */
+/*   Updated: 2025/04/18 12:46:55 by yukoc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	sort_three_a(t_stack **stack)
 	else if ((*stack)->value < b && b > c && (*stack)->value < c)
 	{
 		sa(stack);
-		rra(stack);
+		ra(stack);
 	}
 	else if ((*stack)->value < b && b > c && (*stack)->value > c)
 		rra(stack);
